@@ -37,7 +37,10 @@ const NavElements = () => {
     };
 
     return (
-        <div ref={navContainerRef} className="w-full flex flex-col gap-2 p-10">
+        <div
+            ref={navContainerRef}
+            className="w-full flex flex-col gap-2 p-6 lg:p-10"
+        >
             {tabs.map((tab, i) => (
                 <button
                     disabled={isLoading}
