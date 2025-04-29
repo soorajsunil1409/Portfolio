@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { animatePageOut, useSidebarDescriptionAnimation } from "./animations";
 import { tabs } from "../utils/consts";
 import { useRouter } from "next/navigation";
+import { useNavigationStore } from "../stores/useNavigationStore";
 
 const NavElements = () => {
-    const [activeTab, setActiveTab] = useState<number>(tabs.length);
     const pathname = usePathname();
-
     const navContainerRef = useSidebarDescriptionAnimation();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    const { activeTab, setActiveTab } = useNavigationStore();
     const router = useRouter();
 
     useEffect(() => {

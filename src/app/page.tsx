@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { projects } from "./utils/consts";
 import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigationStore } from "./stores/useNavigationStore";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +14,12 @@ export default function Home() {
     const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
     const helloRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
+    const hoverTextColorDiv = useRef<HTMLDivElement | null>(null);
+
+    const [isHovering, setIsHovering] = useState<boolean>(false);
+    const router = useRouter();
+
+    const { changePage } = useNavigationStore();
 
     useEffect(() => {
         if (helloRef.current) {
@@ -35,6 +43,21 @@ export default function Home() {
             );
         }
     }, []);
+
+    useEffect(() => {
+        if (isHovering) {
+            gsap.to(hoverTextColorDiv.current, {
+                color: "white",
+                duration: 0.5,
+                paddingRight: 0,
+            });
+        } else {
+            gsap.to(hoverTextColorDiv.current, {
+                color: "#8f8f8f",
+                paddingRight: "8px",
+            });
+        }
+    }, [isHovering]);
 
     const handleMouseEnter = (index: number) => {
         const bg = itemRefs.current[index]?.querySelector(".hover-bg");
@@ -60,15 +83,14 @@ export default function Home() {
 
     return (
         <div
-            className="flex flex-col overflow-auto h-full w-full bg-[#222222] relative text-white"
+            className="flex flex-col overflow-auto h-full w-full bg-black relative text-white"
             id="scroller"
         >
             <div className="min-h-screen">
                 <div className="flex flex-col min-h-screen justify-between w-full p-8 pb-15 pr-15">
-                    <div className="flex flex-col gap-0 text-[130px] justify-center">
-                        <div className="text-end font-semibold">Sooraj S</div>
-                        <div className="text-end -translate-y-10 font-semibold">
-                            Namboothiry
+                    <div className="flex flex-col gap-10 text-[150px] justify-center tracking-tighter">
+                        <div className="text-end leading-none mt-[100px]">
+                            Sooraj S
                         </div>
                     </div>
                     <div className="w-full flex flex-col border-t-[1px] border-[#3c3c3c]">
@@ -78,7 +100,7 @@ export default function Home() {
                                 ref={(el) => {
                                     itemRefs.current[i] = el;
                                 }}
-                                className="relative w-full p-5 text-2xl border-b-[1px] border-[#3c3c3c] text-end overflow-hidden cursor-pointer"
+                                className="relative w-full p-5 text-2xl border-b-[1px] border-[#3c3c3c] text-end overflow-hidden"
                                 onMouseEnter={() => handleMouseEnter(i)}
                                 onMouseLeave={() => handleMouseLeave(i)}
                             >
@@ -89,13 +111,21 @@ export default function Home() {
                     </div>
                 </div>
                 <div
-                    className="flex flex-col gap-3 bg-black w-full p-18 overflow-hidden"
+                    className="flex relative flex-col gap-3 bg-black w-full p-18 overflow-hidden"
                     ref={scrollRef}
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
                 >
-                    <div ref={helloRef}>
-                        <div className="flex justify-between text-[#8f8f8f]">
+                    <div
+                        ref={helloRef}
+                        onClick={() => changePage("/works", router)}
+                    >
+                        <div
+                            ref={hoverTextColorDiv}
+                            className="flex p-2 justify-between text-xl text-[#8f8f8f]"
+                        >
                             <div>Hello, I'm Sooraj</div>
-                            <ArrowRight />
+                            <ArrowRight size={30} />
                         </div>
                         <div className="text-[50px]">
                             Check my latest projects

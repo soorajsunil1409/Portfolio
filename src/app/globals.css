@@ -6,3 +6,28 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+
+::view-transition-old(page),
+::view-transition-new(page) {
+    animation: none !important;
+}
+
+::view-transition-group(page) {
+    z-index: auto !important;
+}
+
+::view-transition-image-pair(page) {
+    isolation: isolate;
+    will-change: transform, opacity, clip-path;
+    z-index: 1;
+}
+
+::view-transition-new(page) {
+    z-index: 10000;
+    animation: none !important;
+}
+
+::view-transition-old(page) {
+    z-index: 1;
+    animation: none !important;
+}
