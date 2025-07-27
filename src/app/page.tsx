@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigationStore } from "./stores/useNavigationStore";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,18 +96,19 @@ export default function Home() {
                     </div>
                     <div className="w-full flex flex-col border-t-[1px] border-[#3c3c3c]">
                         {projects.map((project, i) => (
-                            <div
-                                key={i}
-                                ref={(el) => {
-                                    itemRefs.current[i] = el;
-                                }}
-                                className="relative w-full p-5 text-2xl border-b-[1px] border-[#3c3c3c] text-end overflow-hidden"
-                                onMouseEnter={() => handleMouseEnter(i)}
-                                onMouseLeave={() => handleMouseLeave(i)}
-                            >
-                                <div className="hover-bg absolute bottom-0 left-0 w-full h-0 bg-[#3c3c3c] z-0" />
-                                <div className="relative z-0">{project}</div>
-                            </div>
+                            <Link href={project.url} key={i}>
+                                <div
+                                    ref={(el) => {
+                                        itemRefs.current[i] = el;
+                                    }}
+                                    className="relative w-full p-5 text-2xl border-b-[1px] border-[#3c3c3c] text-end overflow-hidden"
+                                    onMouseEnter={() => handleMouseEnter(i)}
+                                    onMouseLeave={() => handleMouseLeave(i)}
+                                >
+                                    <div className="hover-bg absolute bottom-0 left-0 w-full h-0 bg-[#3c3c3c] z-0" />
+                                    <div className="relative z-0">{project.title}</div>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
