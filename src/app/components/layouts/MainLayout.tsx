@@ -7,7 +7,6 @@ import {
 } from "react";
 import CustomCursor from "../cursors/MainCursor";
 import Sidebar from "../Sidebar";
-import { useRouter } from "next/navigation";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
     const containerRef = useRef<HTMLDivElement>(null);
