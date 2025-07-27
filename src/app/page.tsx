@@ -126,7 +126,7 @@ export default function Home() {
                             ref={hoverTextColorDiv}
                             className="flex p-2 justify-between text-xl text-[#8f8f8f]"
                         >
-                            <div>Hello, I'm Sooraj</div>
+                            <div>Hello, I&apos;m Sooraj</div>
                             <ArrowRight size={30} />
                         </div>
                         <div className="text-[50px]">

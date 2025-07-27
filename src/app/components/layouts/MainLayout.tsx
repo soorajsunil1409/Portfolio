@@ -1,8 +1,6 @@
 "use client";
 
 import {
-    cloneElement,
-    isValidElement,
     useEffect,
     useRef,
     useState,
@@ -10,13 +8,10 @@ import {
 import CustomCursor from "../cursors/MainCursor";
 import Sidebar from "../Sidebar";
 import { useRouter } from "next/navigation";
-import { animatePageOut } from "../animations";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMounted, setIsMounted] = useState(false);
-
-    const router = useRouter();
 
     useEffect(() => {
         setIsMounted(true);

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { animatePagein } from "./components/animations";
 
-const template = ({ children }: { children: React.ReactNode }) => {
+const Template = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         animatePagein();
     }, []);
@@ -26,4 +26,4 @@ const template = ({ children }: { children: React.ReactNode }) => {
         </div>
     );
 };
-export default template;
+export default Template;

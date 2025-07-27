@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { projects } from "../utils/consts";
-import Image from "next/image";
 import { ArrowRight, ArrowUpRightIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useNavigationStore } from "../stores/useNavigationStore";
@@ -14,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
     const cardsRef = useRef<HTMLDivElement | null>(null);
-    const color = ["#ffffff"];
 
     const helloRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -132,7 +130,7 @@ export default function Home() {
                             ref={hoverTextColorDiv}
                             className="flex p-2 justify-between text-xl text-[#8f8f8f]"
                         >
-                            <div>Let's Collab</div>
+                            <div>Let&apos;s Collab</div>
                             <ArrowRight size={30} />
                         </div>
                         <div className="text-[50px] text-white">
