@@ -35,8 +35,7 @@ export default function About() {
               <div>Namboothiry</div>
             </div>
             <div className="text-gray-400">
-              Beyond development, Sooraj finds clarity in design, curiosity in AI,
-              and inspiration in the evolving digital landscape.
+              &nbsp;
             </div>
           </div>
 
@@ -49,7 +48,7 @@ export default function About() {
             </div>
 
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 text-center gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 text-center gap-6">
               <div>
                 <div className="text-4xl font-bold text-white">10+</div>
                 <div className="text-sm text-[#a3a3a3]">Projects Built</div>
@@ -61,10 +60,6 @@ export default function About() {
               <div>
                 <div className="text-4xl font-bold text-white">4</div>
                 <div className="text-sm text-[#a3a3a3]">Languages Spoken</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-white">3</div>
-                <div className="text-sm text-[#a3a3a3]">Hackathons Won</div>
               </div>
             </div>
 
