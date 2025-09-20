@@ -68,7 +68,7 @@ export default function About() {
               <div className="text-2xl text-white mb-2">Experience</div>
               <ul className="list-disc list-inside space-y-1">
                 <li>Intern — KPMG India (SOX Control Testing, 2025)</li>
-                <li>Research — Quantum AI for ICU anomaly detection</li>
+                <li>Frontend Lead at Codechef-VITCC</li>
               </ul>
             </div>
 
@@ -83,17 +83,6 @@ export default function About() {
                 <li>🎨 Motion & UI/UX Design (GSAP, Framer Motion)</li>
                 <li>🔗 Web3 Development (Solana, IPFS, Phantom)</li>
               </ul>
-            </div>
-
-            {/* Download CV */}
-            <div>
-              <a
-                href="/Sooraj_S_Namboothiry_CV.pdf"
-                className="text-white underline text-xl"
-                download
-              >
-                Download CV →
-              </a>
             </div>
 
           </div>
